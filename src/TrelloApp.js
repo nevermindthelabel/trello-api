@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import '../components/input.js';
 
 export class TrelloApp extends LitElement {
   static get properties() {
@@ -35,7 +36,7 @@ export class TrelloApp extends LitElement {
   render() {
     return html`
       <main>
-        things
+        <text-input></text-input>
       </main>
 
       <p class="app-footer">
