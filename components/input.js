@@ -4,7 +4,7 @@ export class TextInput extends LitElement {
   static get properties() {
     return {
       value: { type: String },
-      text: { type: String },
+      firstText: { type: String },
       label: { type: String },
       input: { type: Object }
     }
@@ -13,7 +13,7 @@ export class TextInput extends LitElement {
   constructor() {
     super();
     this.value = '';
-    this.text = '';
+    this.firstText = '';
   }
 
   firstUpdated() {
@@ -21,8 +21,7 @@ export class TextInput extends LitElement {
   }
 
   updated() {
-    console.log(this.text);
-    console.log(this.value);
+    console.log(this.firstText);
   }
 
   static get styles() {
@@ -37,12 +36,12 @@ export class TextInput extends LitElement {
   render() {
     return html `
       <label htmlFor="name">
-      <input type="text" name="" id="name" @input="${this.handleInput}" .value="${this.text}"/></label>
-      <button @click="${() => console.log(this.text)}">submit</button>
+      <input type="text" name="" id="name" @change="${this.handleInput}" .value="${this.firstText}" @submit="${() => this.firstText = ''}" /></label>
+      <button type="submit" @click="${() => console.log(this.firstText)}">submit</button>
     `
   }
   handleInput(e) {
-    this.text = e.target.value;
+    this.firstText = e.target.value;
   }
 }
 
