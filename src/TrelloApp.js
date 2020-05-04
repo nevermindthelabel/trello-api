@@ -37,6 +37,7 @@ export class TrelloApp extends LitElement {
     return html`
       <main>
         <text-input></text-input>
+        <text-input></text-input>
       </main>
 
       <p class="app-footer">
