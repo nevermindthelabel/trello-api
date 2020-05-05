@@ -1,12 +1,18 @@
 import { LitElement, html, css } from 'lit-element';
-import '../components/input.js';
+import './components/input.js';
 
 export class TrelloApp extends LitElement {
   static get properties() {
     return {
       title: { type: String },
       page: { type: String },
+      placeholder: { type: String }
     };
+  }
+
+  constructor() {
+    super();
+    this.placeholder = '';
   }
 
   static get styles() {
@@ -36,13 +42,14 @@ export class TrelloApp extends LitElement {
   render() {
     return html`
       <main>
-        <text-input></text-input>
-        <text-input></text-input>
+        <div className="input-container">
+          <text-input
+          .placeholder="Name"
+          ></text-input>
+          <text-input></text-input>
+          <text-input></text-input>
+        </div>
       </main>
-
-      <p class="app-footer">
-      stuff
-      </p>
     `;
   }
 }
