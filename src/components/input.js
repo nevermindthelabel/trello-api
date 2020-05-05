@@ -1,5 +1,5 @@
 import { css, html, LitElement } from 'lit-element';
-import { API_KEY, TOKEN } from '../auth.js';
+import { API_KEY, TOKEN, idList } from '../auth/auth.js'
 
 export class TextInput extends LitElement {
   static get properties() {
@@ -15,6 +15,7 @@ export class TextInput extends LitElement {
   constructor() {
     super();
     this.firstText = '';
+    console.log(API_KEY, TOKEN, idList)
   }
 
   firstUpdated() {

@@ -44,7 +44,6 @@ export class TrelloApp extends LitElement {
       <main>
         <div className="input-container">
           <text-input
-          .placeholder="Name"
           ></text-input>
           <text-input></text-input>
           <text-input></text-input>
