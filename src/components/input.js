@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit-element';
+import { API_KEY, TOKEN } from '../auth.js';
 
 export class TextInput extends LitElement {
   static get properties() {
