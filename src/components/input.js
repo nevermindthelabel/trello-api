@@ -15,7 +15,6 @@ export class TextInput extends LitElement {
   constructor() {
     super();
     this.firstText = '';
-    console.log(API_KEY, TOKEN, idList)
   }
 
   firstUpdated() {
