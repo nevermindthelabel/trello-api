@@ -45,9 +45,12 @@ export class TrelloApp extends LitElement {
       <form>
         <div className="input-container">
           <text-input
+          placeholder="things"
           ></text-input>
-          <text-input></text-input>
-          <text-input></text-input>
+          <text-input
+          placeholder="stuff"></text-input>
+          <text-input
+          placeholder="more things"></text-input>
           <button type="submit">Submit</button>
         </div>
         </form>
