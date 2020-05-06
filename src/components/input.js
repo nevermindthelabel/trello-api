@@ -8,7 +8,7 @@ export class TextInput extends LitElement {
       firstText: { type: String },
       label: { type: String },
       input: { type: Object },
-      placeholder: { type: String, attribute: true }
+      placeholder: { attribute: true }
     }
   }
 
@@ -18,6 +18,7 @@ export class TextInput extends LitElement {
   }
 
   firstUpdated() {
+
   }
 
   updated() {
