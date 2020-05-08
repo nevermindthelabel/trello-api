@@ -52,7 +52,7 @@ export class TrelloApp extends LitElement {
           placeholder="stuff"></text-input>
           <text-input
           placeholder="more things"></text-input>
-          <button type="submit">Submit</button>
+          <button type="submit" @click="${this.submit}">Submit</button>
         </div>
         </form>
       </main>
