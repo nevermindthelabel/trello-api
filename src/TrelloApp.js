@@ -57,4 +57,18 @@ export class TrelloApp extends LitElement {
       </main>
     `;
   }
+  submit() {
+    async function postData(url = '', data = {}) {
+      const response = await fetch(url, {
+        method = 'post',
+        mode = 'cors',
+        headers = {
+          'Content-Type': 'application/json'
+        },
+        body = JSON.stringify(data)
+      });
+      return response.json();
+    }
+  }
+
 }
