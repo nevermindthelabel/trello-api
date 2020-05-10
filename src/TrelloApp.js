@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import './components/input.js';
-import { idList, API_KEY } from './auth/auth.js';
+import { idList, API_KEY, TOKEN } from './auth/auth.js';
 
 export class TrelloApp extends LitElement {
   static get properties() {
@@ -71,6 +71,6 @@ export class TrelloApp extends LitElement {
       });
       return response.json();
     }
-    postData(`https://api.trello.com/1/cards/${idList}&${API_KEY}`).then(data => console.log(data));
+    postData(`https://api.trello.com/1/cards?idList=${idList}&key=${API_KEY}&token=${TOKEN}&name=test`).then(data => console.log(data));
   }
 }
