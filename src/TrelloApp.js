@@ -46,14 +46,17 @@ export class TrelloApp extends LitElement {
       <form>
         <div className="input-container">
           <text-input
+          id="name"
           placeholder="name"
           label="name"
           ></text-input>
           <text-input
+          id="purpose"
           placeholder="purpose"
           label="purpose"
           ></text-input>
           <text-input
+          id="message"
           placeholder="message"
           label="message"
           ></text-input>
@@ -65,6 +68,7 @@ export class TrelloApp extends LitElement {
   }
   submit(e) {
     e.preventDefault();
+    const name = this.shadowRoot.querySelector('#name').value;
     async function postData(url = '', data = {}) {
       const response = await fetch(url, {
         method: 'POST',
@@ -76,6 +80,6 @@ export class TrelloApp extends LitElement {
       });
       return response.json();
     }
-    postData(`https://api.trello.com/1/cards?idList=${idList}&key=${API_KEY}&token=${TOKEN}&name=test`).then(data => console.log(data));
+    postData(`https://api.trello.com/1/cards?idList=${idList}&key=${API_KEY}&token=${TOKEN}&name=${name}`).then(data => console.log(data));
   }
 }
