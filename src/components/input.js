@@ -6,7 +6,7 @@ export class TextInput extends LitElement {
     return {
       value: { type: String },
       firstText: { type: String },
-      label: { type: String },
+      label: { type: String, attribute: true },
       input: { type: Object },
       placeholder: { attribute: true }
     }
@@ -36,8 +36,8 @@ export class TextInput extends LitElement {
   }
   render() {
     return html `
-      <label htmlFor="name">
-      <input type="text" name="" placeholder="${this.placeholder}" id="name" @change="${this.handleInput}" .value="${this.firstText}" @submit="${() => this.firstText = ''}" /></label>
+      <label for="name">
+      <input type="text" name="" placeholder="${this.placeholder}" id="${this.label}" @change="${this.handleInput}" .value="${this.firstText}" @submit="${() => this.firstText = ''}" /></label>
     `
   }
   handleInput(e) {
