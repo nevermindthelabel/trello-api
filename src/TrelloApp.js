@@ -44,7 +44,7 @@ export class TrelloApp extends LitElement {
     return html`
       <main>
       <form>
-        <div className="input-container">
+        <div class="input-container">
           <text-input
           id="name"
           placeholder="name"
@@ -68,7 +68,11 @@ export class TrelloApp extends LitElement {
   }
   submit(e) {
     e.preventDefault();
+    console.log(this.shadowRoot.querySelectorAll('text-input'))
     const name = this.shadowRoot.querySelector('#name').value;
+    const purpose = this.shadowRoot.querySelector('#purpose').value;
+    const message = this.shadowRoot.querySelector('#purpose').value;
+    console.log(name, purpose, message)
     async function postData(url = '', data = {}) {
       const response = await fetch(url, {
         method: 'POST',
