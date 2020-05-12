@@ -43,6 +43,9 @@ export class TextInput extends LitElement {
   handleInput(e) {
     this.firstText = e.target.value;
   }
+  value(e) {
+    return e.target.value
+  }
 }
 
 customElements.define('text-input', TextInput);
