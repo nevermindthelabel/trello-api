@@ -68,11 +68,15 @@ export class TrelloApp extends LitElement {
   }
   submit(e) {
     e.preventDefault();
-    console.log(this.shadowRoot.querySelectorAll('text-input'))
-    const name = this.shadowRoot.querySelector('#name').value;
-    const purpose = this.shadowRoot.querySelector('#purpose').value;
-    const message = this.shadowRoot.querySelector('#purpose').value;
-    console.log(name, purpose, message)
+    console.log(this.shadowRoot.querySelectorAll('text-input'));
+    const inputs = this.shadowRoot.querySelectorAll('text-input');
+    // const name = this.shadowRoot.querySelector('#name').value;
+    // const purpose = this.shadowRoot.querySelector('#purpose').value;
+    // const message = this.shadowRoot.querySelector('#purpose').value;
+    for (let i = 0; i < inputs.length; i++) {
+      console.log(inputs[i].value());
+    }
+
     async function postData(url = '', data = {}) {
       const response = await fetch(url, {
         method: 'POST',
