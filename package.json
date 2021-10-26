@@ -12,13 +12,13 @@
     "format": "npm run format:eslint && npm run format:prettier",
     "build": "rimraf dist && rollup -c rollup.config.js",
     "start:build": "npm run build && es-dev-server --root-dir dist --app-index index.html --open --compatibility none",
-    "start": "es-dev-server --app-index index.html --node-resolve --open --watch"
+    "start": "web-dev-server --node-resolve --watch --open --app-index index.html"
   },
   "devDependencies": {
     "@open-wc/building-rollup": "^1.0.0",
     "@open-wc/eslint-config": "^2.0.0",
+    "@web/dev-server": "^0.1.25",
     "deepmerge": "^4.2.2",
-    "es-dev-server": "^1.5.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.11.0",
     "lint-staged": "^8.0.0",
@@ -30,11 +30,20 @@
     "extends": [
       "@open-wc/eslint-config",
       "eslint-config-prettier"
-    ]
+    ],
+    "rules": {
+      "no-console": "off",
+      "no-plusplus": "off",
+      "no-unused-vars": "off",
+      "class-methods-use-this": "off",
+      "guard-for-in": "off",
+      "no-restricted-syntax": "off"
+    }
   },
   "prettier": {
     "singleQuote": true,
-    "arrowParens": "avoid"
+    "arrowParens": "avoid",
+    "trailingComma": "none"
   },
   "husky": {
     "hooks": {
@@ -60,6 +69,6 @@
   },
   "homepage": "https://github.com/nevermindthelabel/trello-api#readme",
   "dependencies": {
-    "lit-element": "^2.3.1"
+    "lit": "^2.0.2"
   }
 }
