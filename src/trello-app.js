@@ -1,3 +1,3 @@
-import { TrelloApp } from './TrelloApp.js';
+// import { TrelloApp } from './TrelloApp.js';
 
-customElements.define('trello-app', TrelloApp);
+// customElements.define('trello-app', TrelloApp);
