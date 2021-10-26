@@ -1,6 +1,6 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import './components/input.js';
-import { idList, API_KEY, TOKEN } from './auth/auth.js';
+import './components/uploader.js';
 
 export class TrelloApp extends LitElement {
   static get properties() {
@@ -43,29 +43,27 @@ export class TrelloApp extends LitElement {
   render() {
     return html`
       <main>
-      <form>
-        <div class="input-container">
-          <text-input
-          id="name"
-          placeholder="name"
-          label="name"
-          ></text-input>
-          <text-input
-          id="purpose"
-          placeholder="purpose"
-          label="purpose"
-          ></text-input>
-          <text-input
-          id="message"
-          placeholder="message"
-          label="message"
-          ></text-input>
-          <button type="submit" @click="${this.submit}">Submit</button>
-        </div>
+        <form>
+          <div class="input-container">
+            <text-input id="name" placeholder="name" label="name"></text-input>
+            <text-input
+              id="purpose"
+              placeholder="purpose"
+              label="purpose"
+            ></text-input>
+            <text-input
+              id="message"
+              placeholder="message"
+              label="message"
+            ></text-input>
+            <button type="submit" @click="${this.submit}">Submit</button>
+          </div>
         </form>
+        <uploader-component></uploader-component>
       </main>
     `;
   }
+
   submit(e) {
     e.preventDefault();
     console.log(this.shadowRoot.querySelectorAll('text-input'));
@@ -88,6 +86,10 @@ export class TrelloApp extends LitElement {
       });
       return response.json();
     }
-    postData(`https://api.trello.com/1/cards?idList=${idList}&key=${API_KEY}&token=${TOKEN}&name=${name}`).then(data => console.log(data));
+    // postData(
+    //   `https://api.trello.com/1/cards?idList=${idList}&key=${API_KEY}&token=${TOKEN}&name=${name}`
+    // ).then(data => console.log(data));
   }
 }
+
+customElements.define('trello-app', TrelloApp);
